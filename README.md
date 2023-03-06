@@ -20,7 +20,7 @@ Just go to chrome://settings/help for update or check Chrome Version.
 - Manual Captcha.
 - Account Done.
 
-### Prerequisites?
+### Prerequisites
 ```
 npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth fs
 ```
