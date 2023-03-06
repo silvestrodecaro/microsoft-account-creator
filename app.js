@@ -86,7 +86,7 @@ async function start() {
     await page.close();
     await browser.close();
 
-    // Writes account's credentials on "account.txt".
+    // Writes account's credentials on "accounts.txt".
     const account = `${fullName}@outlook.com` + ":" + `${RandomPassword}!`
     console.log(account);
     fs.appendFile('accounts.txt', `\n${account}`, (err) => {
