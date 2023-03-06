@@ -16,7 +16,7 @@ Just go to chrome://settings/help for update or check Chrome Version.
 - Going to Outlook Register Page manually.
 - Putting a random email and names/surnames using real italian names.
 - Putting a random password using real italian words.
-- Putting a random Birth Day.
+- Putting a random birthday.
 - Manual Captcha.
 - Account Done.
 
