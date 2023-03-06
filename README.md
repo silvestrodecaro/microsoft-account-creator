@@ -6,6 +6,10 @@ The bot using the Puppeteer library that allows browser automation will perform 
 I ran a lot of tests to know what is the best way to make the bot "less bot" possible (user agents, fingerprints, devices) but what I wrote in the code seems to be the best optimized form that can be created.
 The Captcha must be done manually but thanks to the optimization of the bot it is a very simple 1/2 captcha.
 
+## IMPORTANT
+Update Google Chrome to the latest version to have good quality account and easy captcha.
+Just go the chrome://settings/help for update or check Chrome Version.
+
 ### Steps
 
 - Accepting Google Cookies.
