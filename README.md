@@ -8,7 +8,7 @@ The Captcha must be done manually but thanks to the optimization of the bot it i
 
 ## IMPORTANT
 Update Google Chrome to the latest version to have good quality account and easy captcha.
-Just go the chrome://settings/help for update or check Chrome Version.
+Just go to chrome://settings/help for update or check Chrome Version.
 
 ### Steps
 
