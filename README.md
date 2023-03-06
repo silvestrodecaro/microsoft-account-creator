@@ -1,7 +1,7 @@
 # Microsoft Account Creator
 by placeboaio
 
-## Geting Started
+## Getting Started
 The bot using the Puppeteer library that allows browser automation will perform all the steps written in the code that will allow the creation of a Microsoft Account using REAL Italian Names/Surnames and REAL Italian words to make good passwords.
 I ran a lot of tests to know what is the best way to make the bot "less bot" possible (user agents, fingerprints, devices) but what I wrote in the code seems to be the best optimized form that can be created.
 The Captcha must be done manually but thanks to the optimization of the bot it is a very simple 1/2 captcha.
