@@ -1,0 +1,96 @@
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+const { executablePath } = require('puppeteer');
+puppeteer.use(StealthPlugin())
+
+const fs = require('fs');
+
+const width = 1920
+const height = 1080
+
+async function start() {
+    const browser = await puppeteer.launch({
+        headless: false,
+        executablePath: "", // How to find: Open chrome and go to chrome://version
+        userDataDir: "", // How to find: Open chrome and go to chrome://version
+        args: [
+            `--window-size=${width},${height}`
+        ],
+        defaultViewport: {
+            width,
+            height
+        }
+    });
+    const context = await browser.createIncognitoBrowserContext();
+    const page = await context.newPage()
+
+    await page.emulateTimezone('Africa/Bujumbura');
+
+    await page.setDefaultTimeout(3600000)
+
+    await page.goto('https://google.com/');
+    await page.click('[class="QS5gu sy4vM"]')
+    const GoogleInput = await page.$('[type="text"]');
+    await GoogleInput.click({ clickCount: 1 })
+    await GoogleInput.type('outlook', { delay: 100 });
+    await page.keyboard.press('Enter');
+    await page.waitForSelector('[class="LC20lb MBeuO DKV0Md"]')
+    await page.click('[class="LC20lb MBeuO DKV0Md"]')
+    await page.waitForSelector('[class="action"]')
+    await page.click('[class="action"]')
+    await page.waitForSelector('[name="MemberName"]')
+
+    const names = fs.readFileSync('names.txt', 'utf8').split('\n');
+
+    const randomFirstName = names[Math.floor(Math.random() * names.length)].trim();
+    const randomLastName = names[Math.floor(Math.random() * names.length)].trim();
+    const fullName = randomFirstName + randomLastName + Math.floor(Math.random() * 9999)
+
+    await page.type('input[name="MemberName"]', fullName);
+    await page.keyboard.press('Enter');
+
+    const words1 = fs.readFileSync('words5char.txt', 'utf8').split('\n');
+    const firstword = words1[Math.floor(Math.random() * words1.length)].trim();
+    const secondword = words1[Math.floor(Math.random() * words1.length)].trim();
+    const RandomPassword = firstword + secondword;
+    await page.waitForSelector('#Password')
+    await page.type('input[name="Password"]', `${RandomPassword}!`);
+    await page.keyboard.press('Enter');
+
+    await page.waitForSelector('#FirstName')
+    await page.type('input[name="FirstName"]', randomFirstName);
+    await page.type('input[name="LastName"]', randomLastName);
+    await page.keyboard.press('Enter');
+
+    await page.waitForSelector('#BirthDay');
+    await page.waitForTimeout(1000)
+
+    await page.select('#BirthMonth', (Math.floor(Math.random() * 12) + 1).toString());
+
+    await page.select('#BirthDay', (Math.floor(Math.random() * 28) + 1).toString());
+
+    await page.type('#BirthYear', (Math.floor(Math.random() * 10) + 1990).toString());
+    await page.keyboard.press('Enter');
+
+    const captchaFrame = await page.waitForFrame(
+        (frame) => frame.name() === 'game-core-frame'
+    );
+    await captchaFrame.waitForSelector(
+        'button[data-theme="home.verifyButton"]'
+    );
+    await captchaFrame.click('button[data-theme="home.verifyButton"]');
+
+    await page.waitForNavigation();
+    await page.close();
+    await browser.close();
+
+    const account = `${fullName}@outlook.com` + ":" + `${RandomPassword}!`
+    console.log(account);
+    fs.appendFile('accounts.txt', `\n${account}`, (err) => {
+        if (err) {
+            console.log(err);
+        }
+    })
+}
+
+start()
