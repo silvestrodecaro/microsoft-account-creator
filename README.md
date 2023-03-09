@@ -1,4 +1,4 @@
-# Microsoft Account Creator
+# Microsoft/Outlook Account Creator
 A fast and secure bot that creates Microsoft accounts.
 
 ## Getting Started
