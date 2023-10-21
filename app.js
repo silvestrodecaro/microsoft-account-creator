@@ -28,17 +28,8 @@ async function start() {
 
     await page.setDefaultTimeout(3600000)
 
-    // Going manually to Outlook register page.
-    await page.goto('https://google.com/');
-    await page.click('[class="QS5gu sy4vM"]')
-    const GoogleInput = await page.$('[type="text"]');
-    await GoogleInput.click({ clickCount: 1 })
-    await GoogleInput.type('outlook', { delay: 100 });
-    await page.keyboard.press('Enter');
-    await page.waitForSelector('[class="LC20lb MBeuO DKV0Md"]')
-    await page.click('[class="LC20lb MBeuO DKV0Md"]')
-    await page.waitForSelector('[class="action"]')
-    await page.click('[class="action"]')
+    // Going to Outlook register page.
+    await page.goto("https://outlook.live.com/owa/?nlp=1&signup=1");
     await page.waitForSelector('[name="MemberName"]')
 
     const names = fs.readFileSync('names.txt', 'utf8').split('\n');
@@ -73,14 +64,6 @@ async function start() {
     await page.select('#BirthDay', (Math.floor(Math.random() * 28) + 1).toString());
     await page.type('#BirthYear', (Math.floor(Math.random() * 10) + 1990).toString());
     await page.keyboard.press('Enter');
-
-    const captchaFrame = await page.waitForFrame(
-        (frame) => frame.name() === 'game-core-frame'
-    );
-    await captchaFrame.waitForSelector(
-        'button[data-theme="home.verifyButton"]'
-    );
-    await captchaFrame.click('button[data-theme="home.verifyButton"]');
 
     await page.waitForNavigation();
     await page.close();
