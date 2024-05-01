@@ -3,6 +3,7 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const { executablePath } = require('puppeteer');
 puppeteer.use(StealthPlugin())
 const fs = require('fs');
+const timeout = require("node:timers/promises");
 
 // Page resolution, if you change anything you may have some errors, don't hesitate to try
 const width = 1920
@@ -21,7 +22,7 @@ async function start() {
             height
         }
     });
-    const context = await browser.createIncognitoBrowserContext();
+    const context = await browser.createBrowserContext();
     const page = await context.newPage()
 
     await page.emulateTimezone('Africa/Bujumbura');
@@ -56,8 +57,8 @@ async function start() {
     await page.type('input[name="LastName"]', randomLastName);
     await page.keyboard.press('Enter');
 
-    await page.waitForSelector('#BirthDay');
-    await page.waitForTimeout(1000)
+    await page.waitForSelector('#BirthDateLabel');
+    await timeout.setTimeout(1000);
 
     // Random birthday.
     await page.select('#BirthMonth', (Math.floor(Math.random() * 12) + 1).toString());
