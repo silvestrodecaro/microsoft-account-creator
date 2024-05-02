@@ -65,7 +65,6 @@ async function start() {
 
     await page.waitForNavigation();
     await page.close();
-    await browser.close();
 
     // Writes account's credentials on "accounts.txt".
     const account = `${fullName}@outlook.com` + ":" + `${RandomPassword}!`
