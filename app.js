@@ -85,7 +85,9 @@ async function start() {
   );
   await page.keyboard.press("Enter");
 
-  await page.waitForNavigation();
+  await page.waitForSelector("#declineButton");
+  await page.click("#declineButton");
+  await page.waitForSelector("#mainApp");
   await page.close();
   await browser.close();
 
