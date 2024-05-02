@@ -23,21 +23,12 @@ Just go to chrome://settings/help for update or check Chrome Version.
 ```
 npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth fs
 ```
+Insert executablePath and userDataDir on lines 14 and 15 (Not required, but it might help you with captchas).
 
-Insert executablePath and userDataDir on lines 14 and 15.
+### Run
+```
+node app.js
+```
 
 ## Proxy
-If you want to use proxies its very simple, just put these lines of code
-
-```
-'--proxy-server=ip:port'
-```
-under line 17 (dont forget the comma)
-and
-```
-await page.authenticate({
-            username: "username",
-            password: "password"
-        })
-```
-under line 25.
+Check line 19 and 29 if you want to use Proxies.
