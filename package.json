@@ -6,6 +6,8 @@
     "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
   "scripts": {
-    "run": "node app.js"
+    "mail": "node app.js",
+    "github": "node github.js",
+    "all": "npm run mail; npm run github"
   }
 }

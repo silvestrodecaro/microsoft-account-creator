@@ -43,10 +43,7 @@ async function start() {
     await page.keyboard.press('Enter');
 
     // Random password.
-    const words1 = fs.readFileSync('words5char.txt', 'utf8').split('\n');
-    const firstword = words1[Math.floor(Math.random() * words1.length)].trim();
-    const secondword = words1[Math.floor(Math.random() * words1.length)].trim();
-    const RandomPassword = firstword + secondword;
+    const RandomPassword = generateRandomPassword();
     await page.waitForSelector('#Password')
     await page.type('input[name="Password"]', `${RandomPassword}!`);
     await page.keyboard.press('Enter');
@@ -73,11 +70,43 @@ async function start() {
     // Writes account's credentials on "accounts.txt".
     const account = `${fullName}@outlook.com` + ":" + `${RandomPassword}!`
     console.log(account);
-    fs.appendFile('accounts.txt', `\n${account}`, (err) => {
+    fs.writeFileSync('accounts.txt', `\n${account}`, (err) => {
         if (err) {
             console.log(err);
         }
     })
+}
+
+function generateRandomPassword() {
+    const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
+
+    // Generate a random lowercase letter
+    const randomLowercaseLetter = lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
+
+    // Generate a random number
+    const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+
+    // Generate random characters to fill up the rest of the password
+    let restOfPassword = '';
+    const minLength = 15;
+    const maxLength = 25; // Just to ensure randomness
+
+    // If password length is less than 8, generate more characters
+    const passwordLength = Math.max(minLength, Math.floor(Math.random() * maxLength));
+
+    for (let i = 0; i < passwordLength - 2; i++) {
+        const randomChar = Math.random() < 0.5 ? randomLowercaseLetter : randomNumber;
+        restOfPassword += randomChar;
+    }
+
+    // Shuffle the rest of the password to ensure randomness
+    restOfPassword = restOfPassword.split('').sort(() => Math.random() - 0.5).join('');
+
+    // Concatenate the random lowercase letter, number, and the rest of the password
+    const password = randomLowercaseLetter + randomNumber + restOfPassword;
+
+    return password;
 }
 
 start()
