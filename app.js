@@ -39,32 +39,30 @@ async function start() {
 
   // Going to Outlook register page.
   await page.goto("https://outlook.live.com/owa/?nlp=1&signup=1");
-  await page.waitForSelector('[name="MemberName"]');
+  await page.waitForSelector('#usernameInput');
 
   const names = fs.readFileSync("names.txt", "utf8").split("\n");
-  const randomFirstName =
-    names[Math.floor(Math.random() * names.length)].trim();
+  const randomFirstName = names[Math.floor(Math.random() * names.length)].trim();
   const randomLastName = names[Math.floor(Math.random() * names.length)].trim();
-  const fullName =
-    randomFirstName + randomLastName + Math.floor(Math.random() * 9999);
+  const username = randomFirstName + randomLastName + Math.floor(Math.random() * 9999);
 
   // Random email.
-  await page.type('input[name="MemberName"]', fullName);
+  await page.type('#usernameInput', username);
   await page.keyboard.press("Enter");
 
   // Random password.
-  const words1 = fs.readFileSync("words5char.txt", "utf8").split("\n");
-  const firstword = words1[Math.floor(Math.random() * words1.length)].trim();
-  const secondword = words1[Math.floor(Math.random() * words1.length)].trim();
-  const RandomPassword = firstword + secondword;
+  const words = fs.readFileSync("words5char.txt", "utf8").split("\n");
+  const firstword = words[Math.floor(Math.random() * words.length)].trim();
+  const secondword = words[Math.floor(Math.random() * words.length)].trim();
+  const RandomPassword = firstword + secondword + '!';
   await page.waitForSelector("#Password");
-  await page.type('input[name="Password"]', `${RandomPassword}!`);
+  await page.type('input[name="Password"]', RandomPassword);
   await page.keyboard.press("Enter");
 
   // Random name and surname.
-  await page.waitForSelector("#FirstName");
-  await page.type('input[name="FirstName"]', randomFirstName);
-  await page.type('input[name="LastName"]', randomLastName);
+  await page.waitForSelector("#firstNameInput");
+  await page.type('#firstNameInput', randomFirstName);
+  await page.type('#lastNameInput', randomLastName);
   await page.keyboard.press("Enter");
 
   await page.waitForSelector("#BirthDay");
@@ -92,7 +90,7 @@ async function start() {
   await browser.close();
 
   // Writes account's credentials on "accounts.txt".
-  const account = `${fullName}@outlook.com` + ":" + `${RandomPassword}!`;
+  const account = `${username}@outlook.com` + ":" + `${RandomPassword}!`;
   console.log(account);
   fs.appendFile("accounts.txt", `\n${account}`, (err) => {
     if (err) {
