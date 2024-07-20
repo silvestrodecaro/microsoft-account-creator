@@ -1,52 +1,48 @@
-const puppeteer = require("puppeteer-extra");
-const StealthPlugin = require("puppeteer-extra-plugin-stealth");
-const { executablePath } = require("puppeteer");
-puppeteer.use(StealthPlugin());
+const { plugin } = require('puppeteer-with-fingerprints');
 const fs = require("fs");
 
-// Page resolution, if you change anything you may have some errors, don't hesitate to try
-const width = 1920;
-const height = 1080;
-
 async function start() {
-  const browser = await puppeteer.launch({
-    headless: false,
-    executablePath: "", // How to find: Open chrome and go to chrome://version (Not required, but it might help you with captchas).
-    userDataDir: "", // How to find: Open chrome and go to chrome://version (Not required, but it might help you with captchas).
-    args: [
-      `--window-size=${width},${height}`,
-      `--incognito`,
-      //'--proxy-server=ip:port' Edit and uncomment if you want to use proxy.
-    ],
-    defaultViewport: {
-      width,
-      height,
-    },
+
+  const fingerprint = await plugin.fetch('', {
+    tags: ['Microsoft Windows', 'Chrome'],
   });
-  const context = await browser.createBrowserContext();
-  const page = await context.newPage();
+  plugin.useFingerprint(fingerprint);
 
-/* Edit and uncomment if you want to use proxy.
-  await page.authenticate({
-    username: "username",
-    password: "password",
+  /* If you want to use a proxy, uncomment the following lines and replace the proxy with your own.
+  plugin.useProxy(`username:password@ip:port`, {
+    detectExternalIP: true,
+    changeGeolocation: true,
+    changeBrowserLanguage: true,
+    changeTimezone: true,
+    changeWebRTC: true,
   });
-*/
+  */
 
-  await page.emulateTimezone("Africa/Bujumbura");
-
+  const browser = await plugin.launch({
+    headless: false
+  });
+  const page = await browser.newPage();
   await page.setDefaultTimeout(3600000);
+
+  await createAccount(page);
+
+  await page.close();
+  await browser.close();
+  process.exit(0);
+
+}
+
+async function createAccount(page) {
 
   // Going to Outlook register page.
   await page.goto("https://outlook.live.com/owa/?nlp=1&signup=1");
   await page.waitForSelector('#usernameInput');
 
+  // Random username.
   const names = fs.readFileSync("names.txt", "utf8").split("\n");
   const randomFirstName = names[Math.floor(Math.random() * names.length)].trim();
   const randomLastName = names[Math.floor(Math.random() * names.length)].trim();
   const username = randomFirstName + randomLastName + Math.floor(Math.random() * 9999);
-
-  // Random email.
   await page.type('#usernameInput', username);
   await page.keyboard.press("Enter");
 
@@ -65,10 +61,9 @@ async function start() {
   await page.type('#lastNameInput', randomLastName);
   await page.keyboard.press("Enter");
 
+  // Random birthday.
   await page.waitForSelector("#BirthDay");
   await delay(1000);
-
-  // Random birthday.
   await page.select(
     "#BirthMonth",
     (Math.floor(Math.random() * 12) + 1).toString()
@@ -82,21 +77,28 @@ async function start() {
     (Math.floor(Math.random() * 10) + 1990).toString()
   );
   await page.keyboard.press("Enter");
+  const email = await page.$eval("#userDisplayName", el => el.textContent);
 
+  // Wait for confirmed account.
   await page.waitForSelector("#declineButton");
   await page.click("#declineButton");
   await page.waitForSelector("#mainApp");
-  await page.close();
-  await browser.close();
+
+  await writeCredentials(email, RandomPassword);
+
+}
+
+async function writeCredentials(email, password) {
 
   // Writes account's credentials on "accounts.txt".
-  const account = `${username}@outlook.com` + ":" + RandomPassword;
+  const account = email + ":" + password;
   console.log(account);
   fs.appendFile("accounts.txt", `\n${account}`, (err) => {
     if (err) {
       console.log(err);
     }
   });
+
 }
 
 function delay(time) {

@@ -7,8 +7,8 @@ I ran a lot of tests to know what is the best way to make the bot "less bot" pos
 The Captcha must be done manually but thanks to the optimization of the bot it is very simple.
 
 ## IMPORTANT
-Update Google Chrome to the latest version to have good quality account and easy captcha.
-Just go to chrome://settings/help for update or check Chrome Version.
+1. Update Google Chrome to the latest version to have good quality account and easy captcha, just go to chrome://settings/help for check or update Chrome Version.
+2. The first time you run the code there will be created a folder called "data", inside there will be the entire browser so it's normal if it takes a little time, but its just for the first run.
 
 ### Steps
 
@@ -21,9 +21,9 @@ Just go to chrome://settings/help for update or check Chrome Version.
 
 ### Prerequisites
 ```
-npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth fs
+npm init -y
+npm install puppeteer puppeteer-with-fingerprints fs
 ```
-Insert executablePath and userDataDir on lines 14 and 15 (Not required, but it might help you with captchas).
 
 ### Run
 ```
@@ -31,4 +31,4 @@ node app.js
 ```
 
 ## Proxy
-Check line 19 and 29 if you want to use Proxies.
+Check line 11 if you want to use Proxies.
