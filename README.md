@@ -20,13 +20,13 @@ The Captcha must be done manually but thanks to the optimization of the bot it i
 - Account Done.
 
 ### Prerequisites
-```
+```sh
 npm init -y
 npm install puppeteer puppeteer-with-fingerprints fs
 ```
 
 ### Run
-```
+```sh
 node app.js
 ```
 
