@@ -92,6 +92,7 @@ async function writeCredentials(email, password) {
 
   // Writes account's credentials on "accounts.txt".
   const account = email + ":" + password;
+  console.clear();
   console.log(account);
   fs.appendFile("accounts.txt", `\n${account}`, (err) => {
     if (err) {
