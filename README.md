@@ -5,13 +5,12 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-# Microsoft/Outlook Account Creator
-A fast and secure bot that creates Microsoft accounts.
+## How it works
+Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-with-fingerprints), a plugin for the [puppeteer](https://github.com/puppeteer/puppeteer) framework that allows generating a browser with good and unique fingerprints, the browser will automatically create a Microsoft Account using real Italian names/surnames and real Italian words to make strong passwords. The Captcha must be completed manually, but thanks to the optimization of the bot, it is very simple.
 
-## Getting Started
-The bot using the Puppeteer library that allows browser automation will perform all the steps written in the code that will allow the creation of Microsoft Accounts using REAL Italian Names/Surnames and REAL Italian words to make good passwords.
-I ran a lot of tests to know what is the best way to make the bot "less bot" possible (user agents, fingerprints, devices) but what I wrote in the code seems to be the best optimized form that can be created.
-The Captcha must be done manually but thanks to the optimization of the bot it is very simple.
+### Built With
+* [![Puppeteer][Puppeteer-badge]][Puppeteer-url]
+* [![Node.js][Node.js-badge]][Node.js-url]
 
 ## IMPORTANT
 1. Update Google Chrome to the latest version to have good quality account and easy captcha, just go to chrome://settings/help for check or update Chrome Version.
@@ -49,6 +48,11 @@ Check line 11 if you want to use Proxies.
 [issues-shield]: https://img.shields.io/github/issues/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
 [issues-url]: https://github.com/silvestrodecaro/microsoft-account-creator/issues
 [license-shield]: https://img.shields.io/github/license/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
-[license-url]: https://github.com/silvestrodecaro/microsoft-account-creator/blob/master/LICENSE.txt
+[license-url]: https://github.com/silvestrodecaro/microsoft-account-creator/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/silvestro-decaro
+
+[Puppeteer-badge]: https://img.shields.io/badge/Puppeteer-40B5A4?logo=puppeteer&logoColor=fff&style=for-the-badge
+[Puppeteer-url]: https://github.com/puppeteer/puppeteer
+[Node.js-badge]: https://img.shields.io/badge/Node.js-5FA04E?logo=nodedotjs&logoColor=fff&style=for-the-badge
+[Node.js-url]: https://nodejs.org
