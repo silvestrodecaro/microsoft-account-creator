@@ -9,12 +9,8 @@
 Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-with-fingerprints), a plugin for the [puppeteer](https://github.com/puppeteer/puppeteer) framework that allows generating a browser with good and unique fingerprints, the browser will automatically create a Microsoft Account using real Italian names/surnames and real Italian words to make strong passwords. The Captcha must be completed manually, but thanks to the optimization of the bot, it is very simple.
 
 ### Built With
-* [![Puppeteer][Puppeteer-badge]][Puppeteer-url]
 * [![Node.js][Node.js-badge]][Node.js-url]
-
-## IMPORTANT
-1. Update Google Chrome to the latest version to have good quality account and easy captcha, just go to chrome://settings/help for check or update Chrome Version.
-2. The first time you run the code there will be created a folder called "data", inside there will be the entire browser so it's normal if it takes a little time, but its just for the first run.
+* [![Puppeteer][Puppeteer-badge]][Puppeteer-url]
 
 ### Steps
 
@@ -24,6 +20,10 @@ Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-wi
 - Putting a random birthday.
 - Manual Captcha.
 - Account Done.
+
+## IMPORTANT
+1. Update Google Chrome to the latest version to have good quality account and easy captcha, just go to chrome://settings/help for check or update Chrome Version.
+2. The first time you run the code there will be created a folder called "data", inside there will be the entire browser so it's normal if it takes a little time, but its just for the first run.
 
 ### Prerequisites
 ```sh
