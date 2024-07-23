@@ -12,9 +12,13 @@
 Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-with-fingerprints), a plugin for the [puppeteer](https://github.com/puppeteer/puppeteer) framework that allows generating a browser with good and unique fingerprints, the browser will automatically create a Microsoft Account using real Italian names/surnames and real Italian words to make strong passwords. 
 > Note: The Captcha must be completed manually, but thanks to the optimization of the bot, it is very simple.
 
+
+
 ### Built With
 [![Node.js][Node.js-badge]][Node.js-url]
 [![Puppeteer][Puppeteer-badge]][Puppeteer-url]
+
+
 
 ### Steps
 
@@ -25,9 +29,14 @@ Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-wi
 - Manual Captcha.
 - Account Done.
 
+
+
 ## 🚀 Getting Started
 
+
+
 ### Installation
+
 ```sh
 git clone https://github.com/silvestrodecaro/microsoft-account-creator.git
 cd microsoft-account-creator
@@ -36,22 +45,38 @@ npm init -y
 npm install puppeteer puppeteer-with-fingerprints fs
 ```
 
+
+
 ### Run
+
 ```sh
 node app.js
 ```
+
+
+
 ## 🔧 Usage
 
+
+
 ### Proxy
+
 Check line 11 if you want to use Proxies.
 
-## ⚠️ IMPORTANT
-1. Update Google Chrome to the latest version to have good quality account and easy captcha, just go to chrome://settings/help for check or update Chrome Version.
-2. The first time you run the code there will be created a folder called "data", inside there will be the entire browser so it's normal if it takes a little time, but its just for the first run.
+
+
+## ⚠️ Important
+
+- Update Google Chrome to the latest version to have good quality account and easy captcha, just go to chrome://settings/help for check or update Chrome Version.
+- The first time you run the code there will be created a folder called "data", inside there will be the entire browser so it's normal if it takes a little time, but its just for the first run.
+
+
 
 ## License
 
 Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
+
+
 
 [contributors-shield]: https://img.shields.io/github/contributors/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
 [contributors-url]: https://github.com/silvestrodecaro/microsoft-account-creator/graphs/contributors
