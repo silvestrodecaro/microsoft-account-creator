@@ -42,6 +42,12 @@ node app.js
 ## Proxy
 Check line 11 if you want to use Proxies.
 
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 [contributors-shield]: https://img.shields.io/github/contributors/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
 [contributors-url]: https://github.com/silvestrodecaro/microsoft-account-creator/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
