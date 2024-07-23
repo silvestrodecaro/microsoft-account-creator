@@ -27,8 +27,11 @@ Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-wi
 
 ## Getting Started
 
-### Prerequisites
+### Installation
 ```sh
+git clone https://github.com/silvestrodecaro/microsoft-account-creator.git
+cd microsoft-account-creator
+
 npm init -y
 npm install puppeteer puppeteer-with-fingerprints fs
 ```
