@@ -6,6 +6,9 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 ## How it works
+
+![Example Screenshot][example-screenshot]
+
 Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-with-fingerprints), a plugin for the [puppeteer](https://github.com/puppeteer/puppeteer) framework that allows generating a browser with good and unique fingerprints, the browser will automatically create a Microsoft Account using real Italian names/surnames and real Italian words to make strong passwords. The Captcha must be completed manually, but thanks to the optimization of the bot, it is very simple.
 
 ### Built With
@@ -51,8 +54,8 @@ Check line 11 if you want to use Proxies.
 [license-url]: https://github.com/silvestrodecaro/microsoft-account-creator/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/silvestro-decaro
-
 [Puppeteer-badge]: https://img.shields.io/badge/Puppeteer-40B5A4?logo=puppeteer&logoColor=fff&style=for-the-badge
 [Puppeteer-url]: https://github.com/puppeteer/puppeteer
 [Node.js-badge]: https://img.shields.io/badge/Node.js-5FA04E?logo=nodedotjs&logoColor=fff&style=for-the-badge
 [Node.js-url]: https://nodejs.org
+[example-screenshot]: example.gif
