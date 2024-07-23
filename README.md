@@ -67,7 +67,7 @@ Check line 11 if you want to use Proxies.
 
 ## ⚠️ Important
 
-- Update Google Chrome to the latest version to have good quality account and easy captcha, just go to [chrome://settings/help](chrome://settings/help) for check or update Chrome Version.
+- Update Google Chrome to the latest version to have good quality account and easy captcha, just go to `chrome://settings/help` for check or update Chrome Version.
 - The first time you run the code there will be created a folder called "data", inside there will be the entire browser so it's normal if it takes a little time, but its just for the first run.
 
 
