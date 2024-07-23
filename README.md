@@ -76,7 +76,7 @@ Check line 11 if you want to use Proxies.
 
 
 
-## License
+## 📃 License
 
 Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
 
