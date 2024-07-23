@@ -44,9 +44,7 @@ Check line 11 if you want to use Proxies.
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
 
 [contributors-shield]: https://img.shields.io/github/contributors/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
 [contributors-url]: https://github.com/silvestrodecaro/microsoft-account-creator/graphs/contributors
