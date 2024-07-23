@@ -25,9 +25,7 @@ Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-wi
 - Manual Captcha.
 - Account Done.
 
-## IMPORTANT
-1. Update Google Chrome to the latest version to have good quality account and easy captcha, just go to chrome://settings/help for check or update Chrome Version.
-2. The first time you run the code there will be created a folder called "data", inside there will be the entire browser so it's normal if it takes a little time, but its just for the first run.
+## Getting Started
 
 ### Prerequisites
 ```sh
@@ -39,9 +37,14 @@ npm install puppeteer puppeteer-with-fingerprints fs
 ```sh
 node app.js
 ```
+## Usage
 
-## Proxy
+### Proxy
 Check line 11 if you want to use Proxies.
+
+## IMPORTANT
+1. Update Google Chrome to the latest version to have good quality account and easy captcha, just go to chrome://settings/help for check or update Chrome Version.
+2. The first time you run the code there will be created a folder called "data", inside there will be the entire browser so it's normal if it takes a little time, but its just for the first run.
 
 ## License
 
