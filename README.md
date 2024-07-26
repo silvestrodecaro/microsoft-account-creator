@@ -1,3 +1,5 @@
+<!--  Microsoft/Outlook HQ Account Creator by silvestrodecaro -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -10,7 +12,7 @@
 ![Example Screenshot][example-screenshot]
 
 Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-with-fingerprints), a plugin for the [puppeteer](https://github.com/puppeteer/puppeteer) framework that allows generating a browser with good and unique fingerprints, the browser will automatically create a Microsoft Account using real Italian names/surnames and real Italian words to make strong passwords. 
-> Note: The Captcha must be completed manually, but thanks to the optimization of the bot, it is very simple.
+> Note: The Captcha can now be completed automatically using CapSolver. You need to configure the API key for CapSolver in the `capsolver/assets/config.js` file. Obviously it is not mandatory, you can easily solve the captcha manually.
 
 
 
@@ -61,6 +63,24 @@ node app.js
 
 ## 🔧 Usage
 
+
+
+### Captcha
+
+To use the automatic Captcha solving feature, you need to set up your CapSolver API key.
+
+1. Obtain an API key from [CapSolver](https://www.capsolver.com).
+2. Open the `capsolver/assets/config.js` file.
+3. Add your API key in the appropriate field.
+
+```js
+// capsolver/assets/config.js
+export const defaultConfig = {
+  apiKey: 'your-capsolver-api-key'
+};
+```
+
+If there are any problems or for any other reason you can check/download the [latest version](https://github.com/capsolver/capsolver-browser-extension/releases/latest) of the Capsolver extension through their [repository](https://github.com/capsolver/capsolver-browser-extension).
 
 
 ### Proxy

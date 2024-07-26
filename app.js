@@ -3,6 +3,8 @@ const fs = require("fs");
 
 async function start() {
 
+  const pathToExtension = require('path').join(__dirname, 'capsolver');
+
   const fingerprint = await plugin.fetch('', {
     tags: ['Microsoft Windows', 'Chrome'],
   });
@@ -19,7 +21,11 @@ async function start() {
   */
 
   const browser = await plugin.launch({
-    headless: false
+    headless: false,
+    args: [
+      `--disable-extensions-except=${pathToExtension}`,
+      `--load-extension=${pathToExtension}`,
+    ]
   });
   const page = await browser.newPage();
   await page.setDefaultTimeout(3600000);
@@ -78,9 +84,11 @@ async function createAccount(page) {
   );
   await page.keyboard.press("Enter");
   const email = await page.$eval("#userDisplayName", el => el.textContent);
+  console.log("Doing Captcha...");
 
   // Wait for confirmed account.
   await page.waitForSelector("#declineButton");
+  console.log("Captcha Solved!");
   await page.click("#declineButton");
   await page.waitForSelector("#mainApp");
 
