@@ -28,7 +28,7 @@ Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-wi
 - Putting a random email and names/surnames using real italian names.
 - Putting a random password using real italian words.
 - Putting a random birthday.
-- Manual Captcha.
+- Captcha.
 - Account Done.
 
 
