@@ -85,7 +85,7 @@ If there are any problems or for any other reason you can check/download the [la
 
 ### Proxy
 
-Check line 11 if you want to use Proxies.
+Check line 13 if you want to use Proxies.
 
 
 
