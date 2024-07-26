@@ -70,7 +70,7 @@ node app.js
 To use the automatic Captcha solving feature, you need to set up your CapSolver API key.
 
 1. Obtain an API key from [CapSolver](https://www.capsolver.com).
-2. Open the `capsolver/assets/config.js` file.
+2. Open the [`capsolver/assets/config.js`](`capsolver/assets/config.js`) file.
 3. Add your API key in the appropriate field.
 
 ```js
