@@ -12,7 +12,7 @@
 ![Example Screenshot][example-screenshot]
 
 Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-with-fingerprints), a plugin for the [puppeteer](https://github.com/puppeteer/puppeteer) framework that allows generating a browser with good and unique fingerprints, the browser will automatically create a Microsoft Account using real Italian names/surnames and real Italian words to make strong passwords. 
-> Note: The Captcha can now be completed automatically using CapSolver. You need to configure the API key for CapSolver in the `capsolver/assets/config.js` file. Obviously it is not mandatory, you can easily solve the captcha manually.
+> Note: The Captcha can now be completed automatically using CapSolver. Obviously it is not mandatory, you can easily solve the captcha manually, just skip the [Captcha section](https://github.com/silvestrodecaro/microsoft-account-creator?tab=readme-ov-file#captcha).
 
 
 
