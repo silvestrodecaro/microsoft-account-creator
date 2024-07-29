@@ -1,9 +1,9 @@
 const { plugin } = require('puppeteer-with-fingerprints');
 const fs = require("fs");
+const config = require('./config');
 
 async function start() {
-
-  const pathToExtension = require('path').join(__dirname, 'capsolver');
+  const pathToExtension = require('path').join(__dirname, config.CAPSOLVER_PATH);
 
   const fingerprint = await plugin.fetch('', {
     tags: ['Microsoft Windows', 'Chrome'],
@@ -35,83 +35,97 @@ async function start() {
   await page.close();
   await browser.close();
   process.exit(0);
-
 }
 
 async function createAccount(page) {
-
   // Going to Outlook register page.
   await page.goto("https://outlook.live.com/owa/?nlp=1&signup=1");
-  await page.waitForSelector('#usernameInput');
+  await page.waitForSelector(SELECTORS.USERNAME_INPUT);
 
-  // Random username.
-  const names = fs.readFileSync("names.txt", "utf8").split("\n");
-  const randomFirstName = names[Math.floor(Math.random() * names.length)].trim();
-  const randomLastName = names[Math.floor(Math.random() * names.length)].trim();
-  const username = randomFirstName + randomLastName + Math.floor(Math.random() * 9999);
-  await page.type('#usernameInput', username);
+  // Generating Random Personal Info.
+  const PersonalInfo = await generatePersonalInfo();
+
+  // Username
+  await page.type(SELECTORS.USERNAME_INPUT, PersonalInfo.username);
   await page.keyboard.press("Enter");
 
-  // Random password.
-  const words = fs.readFileSync("words5char.txt", "utf8").split("\n");
-  const firstword = words[Math.floor(Math.random() * words.length)].trim();
-  const secondword = words[Math.floor(Math.random() * words.length)].trim();
-  const RandomPassword = firstword + secondword + '!';
-  await page.waitForSelector("#Password");
-  await page.type('input[name="Password"]', RandomPassword);
+  // Password
+  const password = await generatePassword();
+  await page.waitForSelector(SELECTORS.PASSWORD_INPUT);
+  await page.type(SELECTORS.PASSWORD_INPUT, password);
   await page.keyboard.press("Enter");
 
-  // Random name and surname.
-  await page.waitForSelector("#firstNameInput");
-  await page.type('#firstNameInput', randomFirstName);
-  await page.type('#lastNameInput', randomLastName);
+  // First Name and Last Name
+  await page.waitForSelector(SELECTORS.FIRST_NAME_INPUT);
+  await page.type(SELECTORS.FIRST_NAME_INPUT, PersonalInfo.randomFirstName);
+  await page.type(SELECTORS.LAST_NAME_INPUT, PersonalInfo.randomLastName);
   await page.keyboard.press("Enter");
 
-  // Random birthday.
-  await page.waitForSelector("#BirthDay");
+  // Birth Date.
+  await page.waitForSelector(SELECTORS.BIRTH_DAY_INPUT);
   await delay(1000);
-  await page.select(
-    "#BirthMonth",
-    (Math.floor(Math.random() * 12) + 1).toString()
-  );
-  await page.select(
-    "#BirthDay",
-    (Math.floor(Math.random() * 28) + 1).toString()
-  );
-  await page.type(
-    "#BirthYear",
-    (Math.floor(Math.random() * 10) + 1990).toString()
-  );
+  await page.select(SELECTORS.BIRTH_DAY_INPUT, PersonalInfo.birthDay);
+  await page.select(SELECTORS.BIRTH_MONTH_INPUT, PersonalInfo.birthMonth);
+  await page.type(SELECTORS.BIRTH_YEAR_INPUT, PersonalInfo.birthYear);
   await page.keyboard.press("Enter");
-  const email = await page.$eval("#userDisplayName", el => el.textContent);
+  const email = await page.$eval(SELECTORS.EMAIL_DISPLAY, el => el.textContent);
   console.log("Doing Captcha...");
 
-  // Wait for confirmed account.
-  await page.waitForSelector("#declineButton");
+  // Waiting for confirmed account.
+  await page.waitForSelector(SELECTORS.DECLINE_BUTTON);
   console.log("Captcha Solved!");
-  await page.click("#declineButton");
-  await page.waitForSelector("#mainApp");
+  await page.click(SELECTORS.DECLINE_BUTTON);
+  await page.waitForSelector(SELECTORS.OUTLOOK_PAGE);
 
-  await writeCredentials(email, RandomPassword);
-
+  await writeCredentials(email, password);
 }
 
 async function writeCredentials(email, password) {
-
   // Writes account's credentials on "accounts.txt".
   const account = email + ":" + password;
   console.clear();
   console.log(account);
-  fs.appendFile("accounts.txt", `\n${account}`, (err) => {
+  fs.appendFile(config.ACCOUNTS_FILE, `\n${account}`, (err) => {
     if (err) {
       console.log(err);
     }
   });
-
 }
+
+async function generatePersonalInfo() {
+  const names = fs.readFileSync(config.NAMES_FILE, "utf8").split("\n");
+  const randomFirstName = names[Math.floor(Math.random() * names.length)].trim();
+  const randomLastName = names[Math.floor(Math.random() * names.length)].trim();
+  const username = randomFirstName + randomLastName + Math.floor(Math.random() * 9999);
+  const birthDay = (Math.floor(Math.random() * 28) + 1).toString()
+  const birthMonth = (Math.floor(Math.random() * 12) + 1).toString()
+  const birthYear = (Math.floor(Math.random() * 10) + 1990).toString()
+  return { username, randomFirstName, randomLastName, birthDay, birthMonth, birthYear };
+}
+
+async function generatePassword() {
+  const words = fs.readFileSync(config.WORDS_FILE, "utf8").split("\n");
+  const firstword = words[Math.floor(Math.random() * words.length)].trim();
+  const secondword = words[Math.floor(Math.random() * words.length)].trim();
+  return firstword + secondword + Math.floor(Math.random() * 9999) + '!';
+}
+
+const SELECTORS = {
+  USERNAME_INPUT: '#usernameInput',
+  PASSWORD_INPUT: '#Password',
+  FIRST_NAME_INPUT: '#firstNameInput',
+  LAST_NAME_INPUT: '#lastNameInput',
+  BIRTH_DAY_INPUT: '#BirthDay',
+  BIRTH_MONTH_INPUT: '#BirthMonth',
+  BIRTH_YEAR_INPUT: '#BirthYear',
+  EMAIL_DISPLAY: '#userDisplayName',
+  DECLINE_BUTTON: '#declineButton',
+  OUTLOOK_PAGE: '#mainApp',
+};
 
 function delay(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
+
 
 start();
