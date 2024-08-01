@@ -12,7 +12,7 @@
 ![Example Screenshot][example-screenshot]
 
 Using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-with-fingerprints), a plugin for the [puppeteer](https://github.com/puppeteer/puppeteer) framework that allows generating a browser with good and unique fingerprints, the browser will automatically create a Microsoft Account using real Italian names/surnames and real Italian words to make strong passwords. 
-> Note: The Captcha can now be completed automatically using CapSolver. Obviously it is not mandatory, you can easily solve the captcha manually, just skip the [Captcha section](https://github.com/silvestrodecaro/microsoft-account-creator?tab=readme-ov-file#captcha).
+> Note: The first time you run the code there will be created a folder called "data", inside there will be the entire browser so it's normal if it takes a little time, but its just for the first run.
 
 
 
@@ -67,20 +67,7 @@ node app.js
 
 ### Captcha
 
-To use the automatic Captcha solving feature, you need to set up your CapSolver API key.
-
-1. Obtain an API key from [CapSolver](https://www.capsolver.com).
-2. Open the [`capsolver/assets/config.js`](capsolver/assets/config.js) file.
-3. Add your API key in the appropriate field.
-
-```js
-// capsolver/assets/config.js
-export const defaultConfig = {
-  apiKey: 'your-capsolver-api-key'
-};
-```
-
-If there are any problems or for any other reason you can check/download the [latest version](https://github.com/capsolver/capsolver-browser-extension/releases/latest) of the Capsolver extension through their [repository](https://github.com/capsolver/capsolver-browser-extension).
+Currently, the automatic Captcha solving feature is no longer supported. After a request of remove from the Captcha provider that I included in this repo, I have decided not to include a Captcha solver in this project. Don't worry, you can easily solve the captcha manually.
 
 
 ### Proxy
@@ -91,8 +78,7 @@ Check line 13 if you want to use Proxies.
 
 ## ⚠️ Important
 
-- Update Google Chrome to the latest version to have good quality account and easy captcha, just go to `chrome://settings/help` for check or update Chrome Version.
-- The first time you run the code there will be created a folder called "data", inside there will be the entire browser so it's normal if it takes a little time, but its just for the first run.
+Update Google Chrome to the latest version to have good quality account and easy captcha, just go to `chrome://settings/help` for check or update Chrome Version.
 
 
 

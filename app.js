@@ -3,7 +3,6 @@ const fs = require("fs");
 const config = require('./config');
 
 async function start() {
-  const pathToExtension = require('path').join(__dirname, config.CAPSOLVER_PATH);
 
   const fingerprint = await plugin.fetch('', {
     tags: ['Microsoft Windows', 'Chrome'],
@@ -21,11 +20,7 @@ async function start() {
   */
 
   const browser = await plugin.launch({
-    headless: false,
-    args: [
-      `--disable-extensions-except=${pathToExtension}`,
-      `--load-extension=${pathToExtension}`,
-    ]
+    headless: false
   });
   const page = await browser.newPage();
   await page.setDefaultTimeout(3600000);
