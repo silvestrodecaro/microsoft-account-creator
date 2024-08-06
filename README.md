@@ -1,5 +1,3 @@
-<!--  Microsoft/Outlook HQ Account Creator by silvestrodecaro -->
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -48,7 +46,7 @@ cd microsoft-account-creator
 
 # Install dependencies
 npm init -y
-npm install puppeteer puppeteer-with-fingerprints fs
+npm i
 ```
 
 

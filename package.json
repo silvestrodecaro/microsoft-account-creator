@@ -1,0 +1,17 @@
+{
+  "name": "microsoft-account-creator",
+  "version": "1.0.0",
+  "description": "Microsoft/Outlook HQ Account Creator by silvestrodecaro",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "puppeteer": "^22.15.0",
+    "puppeteer-with-fingerprints": "^1.5.0"
+  }
+}

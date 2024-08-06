@@ -2,5 +2,4 @@ data
 node_modules
 accounts.txt
 package-lock.json
-package.json
 example.gif
