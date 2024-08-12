@@ -70,7 +70,13 @@ Currently, the automatic Captcha solving feature is no longer supported. After a
 
 ### Proxy
 
-Check line 13 if you want to use Proxies.
+If you want to use proxies go to `config.js` file, set USE_PROXY (default: false) to true and your proxy credentials.
+
+
+### Recovery Email
+
+If you DON'T want a recovery email added to the account when it is created go to `config.js` and set ADD_RECOVERY_EMAIL (default: true) to false.
+> (Not recommended).
 
 
 
@@ -102,4 +108,4 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information
 [Puppeteer-url]: https://github.com/puppeteer/puppeteer
 [Node.js-badge]: https://img.shields.io/badge/Node.js-5FA04E?logo=nodedotjs&logoColor=fff&style=for-the-badge
 [Node.js-url]: https://nodejs.org
-[example-screenshot]: example.gif
+[example-screenshot]: /assets/example.gif

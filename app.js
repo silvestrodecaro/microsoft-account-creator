@@ -1,6 +1,7 @@
 const { plugin } = require('puppeteer-with-fingerprints');
 const fs = require("fs");
 const config = require('./config');
+const recMail = require('./utility/recMail');
 
 async function start() {
 
@@ -9,15 +10,15 @@ async function start() {
   });
   plugin.useFingerprint(fingerprint);
 
-  /* If you want to use a proxy, uncomment the following lines and replace the proxy with your own.
-  plugin.useProxy(`username:password@ip:port`, {
-    detectExternalIP: true,
-    changeGeolocation: true,
-    changeBrowserLanguage: true,
-    changeTimezone: true,
-    changeWebRTC: true,
-  });
-  */
+  if (config.USE_PROXY) {
+    plugin.useProxy(`${config.PROXY_USERNAME}:${config.PROXY_PASSWORD}@${config.PROXY_IP}:${config.PROXY_PORT}`, {
+      detectExternalIP: true,
+      changeGeolocation: true,
+      changeBrowserLanguage: true,
+      changeTimezone: true,
+      changeWebRTC: true,
+    });
+  }
 
   const browser = await plugin.launch({
     headless: false
@@ -72,7 +73,21 @@ async function createAccount(page) {
   await page.click(SELECTORS.DECLINE_BUTTON);
   await page.waitForSelector(SELECTORS.OUTLOOK_PAGE);
 
+  if (config.ADD_RECOVERY_EMAIL) {
+    await page.goto("https://account.live.com/proofs/Manage");
+    await page.waitForSelector(SELECTORS.RECOVERY_EMAIL_INPUT);
+    const recoveryEmail = await recMail.getEmail();
+    await page.type(SELECTORS.RECOVERY_EMAIL_INPUT, recoveryEmail.email);
+    await page.keyboard.press("Enter");
+
+    await page.waitForSelector(SELECTORS.EMAIL_CODE_INPUT);
+    await page.type(SELECTORS.EMAIL_CODE_INPUT, await recMail.getMessage(recoveryEmail));
+    await page.keyboard.press("Enter");
+    await page.waitForSelector(SELECTORS.AFTER_CODE);
+  }
+
   await writeCredentials(email, password);
+
 }
 
 async function writeCredentials(email, password) {
@@ -116,11 +131,13 @@ const SELECTORS = {
   EMAIL_DISPLAY: '#userDisplayName',
   DECLINE_BUTTON: '#declineButton',
   OUTLOOK_PAGE: '#mainApp',
+  RECOVERY_EMAIL_INPUT: '#EmailAddress',
+  EMAIL_CODE_INPUT: '#iOttText',
+  AFTER_CODE: '#idA_SAOTCS_LostProofs'
 };
 
 function delay(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
-
 
 start();

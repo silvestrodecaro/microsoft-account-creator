@@ -1,7 +1,7 @@
 {
   "name": "microsoft-account-creator",
   "version": "1.0.0",
-  "description": "Microsoft/Outlook HQ Account Creator by silvestrodecaro",
+  "description": "[![Contributors][contributors-shield]][contributors-url]\r [![Forks][forks-shield]][forks-url]\r [![Stargazers][stars-shield]][stars-url]\r [![Issues][issues-shield]][issues-url]\r [![MIT License][license-shield]][license-url]\r [![LinkedIn][linkedin-shield]][linkedin-url]",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.3",
     "fs": "^0.0.1-security",
-    "puppeteer": "^22.15.0",
+    "puppeteer": "^23.0.2",
     "puppeteer-with-fingerprints": "^1.5.0"
   }
 }
