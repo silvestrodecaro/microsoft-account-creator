@@ -1,7 +1,7 @@
 {
   "name": "microsoft-account-creator",
   "version": "1.0.0",
-  "description": "[![Contributors][contributors-shield]][contributors-url]\r [![Forks][forks-shield]][forks-url]\r [![Stargazers][stars-shield]][stars-url]\r [![Issues][issues-shield]][issues-url]\r [![MIT License][license-shield]][license-url]\r [![LinkedIn][linkedin-shield]][linkedin-url]",
+  "description": " Microsoft/Outlook HQ Account Creator by https://github.com/silvestrodecaro/",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
