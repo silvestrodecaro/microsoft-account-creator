@@ -79,7 +79,7 @@ To use a proxy:
 
 To disable adding a recovery email:
 
-1. Open the [`config.js`](config.js) file
+1. Open the [`config.js`](config.js#L2) file
 2. Set `ADD_RECOVERY_EMAIL: false`
 
 > Note: Disabling the recovery email is not recommended.
