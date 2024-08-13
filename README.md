@@ -3,13 +3,14 @@
 </h1>
 
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+<p align=center>
+    <a href="https://github.com/silvestrodecaro/microsoft-account-creator/graphs/contributors" rel="nofollow"><img src="https://img.shields.io/github/contributors/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" alt="Contributors" data-canonical-src="https://img.shields.io/github/contributors/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" style="max-width: 100%;"></a>
+    <a href="https://github.com/silvestrodecaro/microsoft-account-creator/network/members" rel="nofollow"><img src="https://img.shields.io/github/forks/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" alt="Forks" data-canonical-src="https://img.shields.io/github/forks/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" style="max-width: 100%;"></a>
+    <a href="https://github.com/silvestrodecaro/microsoft-account-creator/stargazers" rel="nofollow"><img src="https://img.shields.io/github/stars/silvestrodecaro/microsoft-account-creator?style=for-the-badge" alt="Stargazers" data-canonical-src="https://img.shields.io/github/stars/silvestrodecaro/microsoft-account-creator?style=for-the-badge" style="max-width: 100%;"></a>
+    <a href="https://github.com/silvestrodecaro/microsoft-account-creator/issues" rel="nofollow"><img src="https://img.shields.io/github/issues/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" alt="Issues" data-canonical-src="https://img.shields.io/github/issues/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" style="max-width: 100%;"></a>
+    <a href="https://github.com/silvestrodecaro/microsoft-account-creator/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" alt="MIT License" data-canonical-src="https://img.shields.io/github/license/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" style="max-width: 100%;"></a>
+</p>
 
-An automated tool for creating Microsoft accounts using realistic Italian data.
 
 ## 📖 Description
 
@@ -110,16 +111,7 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-[contributors-shield]: https://img.shields.io/github/contributors/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
-[contributors-url]: https://github.com/silvestrodecaro/microsoft-account-creator/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
-[forks-url]: https://github.com/silvestrodecaro/microsoft-account-creator/network/members
-[stars-shield]: https://img.shields.io/github/stars/silvestrodecaro/microsoft-account-creator?style=for-the-badge
-[stars-url]: https://github.com/silvestrodecaro/microsoft-account-creator/stargazers
-[issues-shield]: https://img.shields.io/github/issues/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
-[issues-url]: https://github.com/silvestrodecaro/microsoft-account-creator/issues
-[license-shield]: https://img.shields.io/github/license/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
-[license-url]: https://github.com/silvestrodecaro/microsoft-account-creator/blob/master/LICENSE
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/silvestro-decaro
 [Puppeteer-badge]: https://img.shields.io/badge/Puppeteer-40B5A4?logo=puppeteer&logoColor=fff&style=for-the-badge
