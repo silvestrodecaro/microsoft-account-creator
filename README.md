@@ -10,8 +10,6 @@
     <a href="https://github.com/silvestrodecaro/microsoft-account-creator/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" alt="MIT License" data-canonical-src="https://img.shields.io/github/license/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" style="max-width: 100%;"></a>
 </p>
 
-## 📖 Description
-
 This project automates the creation of Microsoft accounts using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-with-fingerprints), a plugin for the [puppeteer](https://github.com/puppeteer/puppeteer) framework. It generates accounts with realistic Italian names, surnames, and passwords, enhancing the authenticity of created accounts.
 
 ## ✨ Key Features
