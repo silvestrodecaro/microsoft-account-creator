@@ -1,5 +1,5 @@
 <h1 align="center">
-    <small>A web scraping and browser automation library</small>
+    <small>Microsoft/Outlook HQ Account Creator</small>
 </h1>
 
 
