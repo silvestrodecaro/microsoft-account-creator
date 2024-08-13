@@ -5,7 +5,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 An automated tool for creating Microsoft accounts using realistic Italian data.
 
@@ -106,9 +105,7 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information
 
 ## 📞 Contact
 
-Silvestro Decaro - [LinkedIn][linkedin-url]
-
-Project Link: [https://github.com/silvestrodecaro/microsoft-account-creator](https://github.com/silvestrodecaro/microsoft-account-creator)
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 [contributors-shield]: https://img.shields.io/github/contributors/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge
 [contributors-url]: https://github.com/silvestrodecaro/microsoft-account-creator/graphs/contributors
