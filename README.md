@@ -65,7 +65,7 @@ node app.js
 
 ### CAPTCHA
 
-Currently, automatic CAPTCHA solving is not supported. You need to solve the CAPTCHA manually when prompted.
+The automatic CAPTCHA solving feature is no longer supported. Following a removal request from the CAPTCHA provider previously included in this repository, I have decided to exclude any CAPTCHA solver from this project. Don't worry - you can easily solve the CAPTCHA manually when prompted during the account creation process.
 
 ### Proxy
 
