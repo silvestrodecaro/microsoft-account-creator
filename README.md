@@ -84,7 +84,7 @@ If you DON'T want a recovery email added to the account when it is created go to
 ADD_RECOVERY_EMAIL: true
 ```
 to false.
-> __(Not recommended)__
+> _(Not recommended)_
 
 
 
