@@ -75,7 +75,7 @@ If you want to use proxies go to `config.js` file, set USE_PROXY (default: false
 
 ### Recovery Email
 
-If you DON'T want a recovery email added to the account when it is created go to [`config.js?plain=2`](config) file and set ADD_RECOVERY_EMAIL (default: true) to false.
+If you DON'T want a recovery email added to the account when it is created go to [`config`](config.js?plain=2) file and set ADD_RECOVERY_EMAIL (default: true) to false.
 > (Not recommended).
 
 
