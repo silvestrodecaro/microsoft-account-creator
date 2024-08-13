@@ -70,12 +70,20 @@ Currently, the automatic Captcha solving feature is no longer supported. After a
 
 ### Proxy
 
-If you want to use proxies go to [`config`](config.js?plain=3) file, set USE_PROXY (default: false) to true and your proxy credentials.
+If you want to use proxies go to [`config`](config.js?plain=3) file, set
+```sh
+USE_PROXY: false
+```
+to true and your proxy credentials.
 
 
 ### Recovery Email
 
-If you DON'T want a recovery email added to the account when it is created go to [`config`](config.js?plain=2) file and set ADD_RECOVERY_EMAIL (default: true) to false.
+If you DON'T want a recovery email added to the account when it is created go to [`config`](config.js?plain=2) file and set
+```sh
+ADD_RECOVERY_EMAIL: true
+```
+to false.
 > (Not recommended).
 
 
