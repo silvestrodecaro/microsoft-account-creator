@@ -2,7 +2,6 @@
     <small>Microsoft/Outlook HQ Account Creator</small>
 </h1>
 
-
 <p align=center>
     <a href="https://github.com/silvestrodecaro/microsoft-account-creator/graphs/contributors" rel="nofollow"><img src="https://img.shields.io/github/contributors/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" alt="Contributors" data-canonical-src="https://img.shields.io/github/contributors/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" style="max-width: 100%;"></a>
     <a href="https://github.com/silvestrodecaro/microsoft-account-creator/network/members" rel="nofollow"><img src="https://img.shields.io/github/forks/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" alt="Forks" data-canonical-src="https://img.shields.io/github/forks/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" style="max-width: 100%;"></a>
@@ -10,7 +9,6 @@
     <a href="https://github.com/silvestrodecaro/microsoft-account-creator/issues" rel="nofollow"><img src="https://img.shields.io/github/issues/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" alt="Issues" data-canonical-src="https://img.shields.io/github/issues/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" style="max-width: 100%;"></a>
     <a href="https://github.com/silvestrodecaro/microsoft-account-creator/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" alt="MIT License" data-canonical-src="https://img.shields.io/github/license/silvestrodecaro/microsoft-account-creator.svg?style=for-the-badge" style="max-width: 100%;"></a>
 </p>
-
 
 ## 📖 Description
 
@@ -110,7 +108,6 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information
 ## 📞 Contact
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/silvestro-decaro
