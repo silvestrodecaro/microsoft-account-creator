@@ -74,7 +74,7 @@ If you want to use proxies go to [`config`](config.js?plain=3) file, set
 ```sh
 USE_PROXY: false
 ```
-to true and your proxy credentials.
+to true and set your proxy credentials.
 
 
 ### Recovery Email
