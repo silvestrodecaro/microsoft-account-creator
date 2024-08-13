@@ -1,4 +1,7 @@
-# Microsoft Account Creator
+<h1 align="center">
+    <small>A web scraping and browser automation library</small>
+</h1>
+
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
