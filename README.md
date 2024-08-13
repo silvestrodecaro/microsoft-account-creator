@@ -71,7 +71,7 @@ The automatic CAPTCHA solving feature is no longer supported. Following a remova
 
 To use a proxy:
 
-1. Open the [`config.js`](config.js) file
+1. Open the [`config.js`](config.js#L3) file
 2. Set `USE_PROXY: true`
 3. Edit proxy credentials as needed
 
