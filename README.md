@@ -70,7 +70,7 @@ Currently, the automatic Captcha solving feature is no longer supported. After a
 
 ### Proxy
 
-If you want to use proxies go to `config.js` file, set USE_PROXY (default: false) to true and your proxy credentials.
+If you want to use proxies go to [`config`](config.js?plain=3) file, set USE_PROXY (default: false) to true and your proxy credentials.
 
 
 ### Recovery Email
