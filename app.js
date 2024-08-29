@@ -75,15 +75,27 @@ async function createAccount(page) {
 
   if (config.ADD_RECOVERY_EMAIL) {
     await page.goto("https://account.live.com/proofs/Manage");
+
+    // First verify.
     await page.waitForSelector(SELECTORS.RECOVERY_EMAIL_INPUT);
     const recoveryEmail = await recMail.getEmail();
     await page.type(SELECTORS.RECOVERY_EMAIL_INPUT, recoveryEmail.email);
     await page.keyboard.press("Enter");
-
     await page.waitForSelector(SELECTORS.EMAIL_CODE_INPUT);
     await page.type(SELECTORS.EMAIL_CODE_INPUT, await recMail.getMessage(recoveryEmail));
     await page.keyboard.press("Enter");
     await page.waitForSelector(SELECTORS.AFTER_CODE);
+
+    // Second verify.
+    await page.click(SELECTORS.AFTER_CODE);
+    await page.waitForSelector(SELECTORS.DOUBLE_VERIFY_EMAIL);
+    await page.type(SELECTORS.DOUBLE_VERIFY_EMAIL, recoveryEmail.email);
+    await page.keyboard.press("Enter");
+    await page.waitForSelector(SELECTORS.DOUBLE_VERIFY_CODE);
+    await page.type(SELECTORS.DOUBLE_VERIFY_CODE, await recMail.getMessage(recoveryEmail));
+    await page.keyboard.press("Enter");
+    await page.waitForSelector(SELECTORS.INTERRUPT_CONTAINER);
+    
   }
 
   await writeCredentials(email, password);
@@ -133,7 +145,10 @@ const SELECTORS = {
   OUTLOOK_PAGE: '#mainApp',
   RECOVERY_EMAIL_INPUT: '#EmailAddress',
   EMAIL_CODE_INPUT: '#iOttText',
-  AFTER_CODE: '#idA_SAOTCS_LostProofs'
+  AFTER_CODE: '#idDiv_SAOTCS_Proofs_Section',
+  DOUBLE_VERIFY_EMAIL: '#idTxtBx_SAOTCS_ProofConfirmation',
+  DOUBLE_VERIFY_CODE: '#idTxtBx_SAOTCC_OTC',
+  INTERRUPT_CONTAINER: '#interruptContainer'
 };
 
 function delay(time) {
