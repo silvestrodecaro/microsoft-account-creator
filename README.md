@@ -12,6 +12,8 @@
 
 This project automates the creation of Microsoft accounts using [puppeteer-with-fingerprints](https://github.com/CheshireCaat/puppeteer-with-fingerprints), a plugin for the [puppeteer](https://github.com/puppeteer/puppeteer) framework. It generates accounts with realistic Italian names, surnames, and passwords, enhancing the authenticity of created accounts.
 
+> Note: The first (and only) time you run the code it will create a folder called “data” containing the entire browser, this will take a few minutes.
+
 ## ✨ Key Features
 
 - Automatic generation of Microsoft accounts
