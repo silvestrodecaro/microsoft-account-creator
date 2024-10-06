@@ -73,7 +73,7 @@ The automatic CAPTCHA solving feature is no longer supported. Following a remova
 
 To use a proxy:
 
-1. Open the [`config.js`](config.js#L3) file
+1. Open the [`config.js`](src/config.js#L3) file
 2. Set `USE_PROXY: true`
 3. Edit proxy credentials as needed
 
@@ -81,7 +81,7 @@ To use a proxy:
 
 To disable adding a recovery email:
 
-1. Open the [`config.js`](config.js#L2) file
+1. Open the [`config.js`](src/config.js#L2) file
 2. Set `ADD_RECOVERY_EMAIL: false`
 
 > Note: Disabling the recovery email is not recommended.
