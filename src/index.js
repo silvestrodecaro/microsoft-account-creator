@@ -1,16 +1,26 @@
 const { plugin } = require('puppeteer-with-fingerprints');
 const fs = require("fs");
 const config = require('./config');
-const recMail = require('./utility/recMail');
+const log = require('./Utils/log');
+const recMail = require('./Utils/recMail');
 
 async function start() {
+  console.clear();
 
+  log("Starting...", "green");
+
+  log("Fetching Fingerprint...", "yellow");
   const fingerprint = await plugin.fetch('', {
     tags: ['Microsoft Windows', 'Chrome'],
   });
+
+  log("Applying Fingerprint...", "yellow");
   plugin.useFingerprint(fingerprint);
 
+  log("Fingerprint fetched and applied", "green");
+
   if (config.USE_PROXY) {
+    log("Applying proxy settings...", "green");
     plugin.useProxy(`${config.PROXY_USERNAME}:${config.PROXY_PASSWORD}@${config.PROXY_IP}:${config.PROXY_PORT}`, {
       detectExternalIP: true,
       changeGeolocation: true,
@@ -18,19 +28,37 @@ async function start() {
       changeTimezone: true,
       changeWebRTC: true,
     });
+    log("Proxy settings applied", "green");
   }
 
+  log("Launching browser...", "green");
   const browser = await plugin.launch({
     headless: false
   });
   const page = await browser.newPage();
   await page.setDefaultTimeout(3600000);
 
-  await createAccount(page);
+  const viewport = await page.evaluate(() => ({
+    width: document.documentElement.clientWidth,
+    height: document.documentElement.clientHeight,
+  }));
+  log(`Viewport: [Width: ${viewport.width} Height: ${viewport.height}]`, "green");
 
+  // Check if the viewport is bigger than the current resolution.
+  const { getCurrentResolution } = await import("win-screen-resolution");
+  if (viewport.width > getCurrentResolution().width || viewport.height > getCurrentResolution().height) {
+    log("Viewport is bigger than the current resolution, restarting...", "red");
+    await delay(5000);
+    await page.close();
+    await browser.close();
+    start();
+  }
+
+  await createAccount(page);
   await page.close();
   await browser.close();
   process.exit(0);
+
 }
 
 async function createAccount(page) {
@@ -65,11 +93,11 @@ async function createAccount(page) {
   await page.type(SELECTORS.BIRTH_YEAR_INPUT, PersonalInfo.birthYear);
   await page.keyboard.press("Enter");
   const email = await page.$eval(SELECTORS.EMAIL_DISPLAY, el => el.textContent);
-  console.log("Doing Captcha...");
+  log("Please solve the captcha", "yellow");
 
   // Waiting for confirmed account.
   await page.waitForSelector(SELECTORS.DECLINE_BUTTON);
-  console.log("Captcha Solved!");
+  log("Captcha Solved!", "green");
   await page.click(SELECTORS.DECLINE_BUTTON);
   await page.waitForSelector(SELECTORS.OUTLOOK_PAGE);
 
@@ -82,9 +110,12 @@ async function createAccount(page) {
     await page.type(SELECTORS.RECOVERY_EMAIL_INPUT, recoveryEmail.email);
     await page.keyboard.press("Enter");
     await page.waitForSelector(SELECTORS.EMAIL_CODE_INPUT);
-    await page.type(SELECTORS.EMAIL_CODE_INPUT, await recMail.getMessage(recoveryEmail));
+    log("Waiting for Email Code... (first verify)", "yellow");
+    firstCode = await recMail.getMessage(recoveryEmail);
+    log(`Email Code Received! Code: ${firstCode}`, "green");
+    await page.type(SELECTORS.EMAIL_CODE_INPUT, firstCode);
     await page.keyboard.press("Enter");
-    await page.waitForSelector(SELECTORS.AFTER_CODE);
+    await page.waitForSelector(SELECTORS.AFTER_CODE); // QUI STA IL PROBLEMA
 
     // Second verify.
     await page.click(SELECTORS.AFTER_CODE);
@@ -92,10 +123,13 @@ async function createAccount(page) {
     await page.type(SELECTORS.DOUBLE_VERIFY_EMAIL, recoveryEmail.email);
     await page.keyboard.press("Enter");
     await page.waitForSelector(SELECTORS.DOUBLE_VERIFY_CODE);
-    await page.type(SELECTORS.DOUBLE_VERIFY_CODE, await recMail.getMessage(recoveryEmail));
+    log("Waiting for Email Code... (second verify)", "yellow");
+    secondCode = await recMail.getMessage(recoveryEmail);
+    log(`Email Code Received! Code: ${secondCode}`, "green");
+    await page.type(SELECTORS.DOUBLE_VERIFY_CODE, secondCode);
     await page.keyboard.press("Enter");
     await page.waitForSelector(SELECTORS.INTERRUPT_CONTAINER);
-    
+
   }
 
   await writeCredentials(email, password);
@@ -105,11 +139,10 @@ async function createAccount(page) {
 async function writeCredentials(email, password) {
   // Writes account's credentials on "accounts.txt".
   const account = email + ":" + password;
-  console.clear();
-  console.log(account);
+  log(account, "green");
   fs.appendFile(config.ACCOUNTS_FILE, `\n${account}`, (err) => {
     if (err) {
-      console.log(err);
+      log(err, "red");
     }
   });
 }

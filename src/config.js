@@ -5,7 +5,7 @@ module.exports = {
     PROXY_PASSWORD: 'password',
     PROXY_IP: 'ip',
     PROXY_PORT: 'port',
-    NAMES_FILE: 'utility/names.txt',
-    WORDS_FILE: 'utility/words5char.txt',
+    NAMES_FILE: 'src/Utils/names.txt',
+    WORDS_FILE: 'src/Utils/words5char.txt',
     ACCOUNTS_FILE: 'accounts.txt',
   };

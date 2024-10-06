@@ -87,9 +87,7 @@ async function getMid(email) {
 
 async function getMessage(email) {
     try {
-        console.log("Waiting for Email Code...");
         const mid = await getMid(email);
-        console.log("Email Code Received!");
         const key = await getKey();
         const response = await axios.get(`https://api.sonjj.com/email/gm/read`, {
             params: {
