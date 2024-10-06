@@ -60,7 +60,7 @@ npm install
 ### Running
 
 ```sh
-node app.js
+node .
 ```
 
 ## 🔧 Configuration
