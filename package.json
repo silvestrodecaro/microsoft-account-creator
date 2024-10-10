@@ -12,8 +12,8 @@
   "dependencies": {
     "axios": "^1.7.7",
     "colors": "^1.4.0",
-    "puppeteer": "^23.4.0",
-    "puppeteer-with-fingerprints": "^1.6.3",
+    "puppeteer": "^23.5.2",
+    "puppeteer-with-fingerprints": "^2.0.3",
     "win-screen-resolution": "^3.0.2"
   }
 }

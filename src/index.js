@@ -10,7 +10,8 @@ async function start() {
   log("Starting...", "green");
 
   log("Fetching Fingerprint...", "yellow");
-  const fingerprint = await plugin.fetch('', {
+  plugin.setServiceKey('');
+  const fingerprint = await plugin.fetch({
     tags: ['Microsoft Windows', 'Chrome'],
   });
 
