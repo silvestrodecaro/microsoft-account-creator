@@ -116,7 +116,7 @@ async function createAccount(page) {
     log(`Email Code Received! Code: ${firstCode}`, "green");
     await page.type(SELECTORS.EMAIL_CODE_INPUT, firstCode);
     await page.keyboard.press("Enter");
-    await page.waitForSelector(SELECTORS.AFTER_CODE); // QUI STA IL PROBLEMA
+    await page.waitForSelector(SELECTORS.AFTER_CODE);
 
     // Second verify.
     await page.click(SELECTORS.AFTER_CODE);
